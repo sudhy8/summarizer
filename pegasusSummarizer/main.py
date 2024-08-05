@@ -2,8 +2,19 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from transformers import TFAutoModelForSeq2SeqLM, AutoTokenizer
 import tensorflow as tf
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
+
+
 
 # Load smaller model and tokenizer...
 model_name = "facebook/bart-large-cnn"
