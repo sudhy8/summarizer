@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from transformers import TFAutoModelForSeq2SeqLM, AutoTokenizer
 import tensorflow as tf
 from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 
